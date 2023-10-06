@@ -23,4 +23,9 @@ function donneArmeByIdV1($id) {
 }
 
 
+
+function ajouteArme($objetArme){
+    
+}
+
 ?>
