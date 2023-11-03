@@ -25,25 +25,26 @@ function donneArmeByIdV1($id) {
 
 function ajouteArme($arme) {
     $pdo = PDO2::getInstance();
-    
-    $sql = "INSERT INTO JeuArcade (id,nom, nom_image, desc) VALUES (:id,:nom, :nom_image, :description)";
-    
+
+    $sql = "INSERT INTO arme (id,nom, nom_image, `description`) VALUES (:id,:nom, :nom_image, :description)";
+
     $requete = $pdo->prepare($sql);
 
     $requete->bindValue(':id', $arme->getId());
     $requete->bindValue(':nom', $arme->getNom());
     $requete->bindValue(':nom_image', $arme->getImage());
     $requete->bindValue(':description', $arme->getDescription());
-    
-    $execution = $requete->execute();
 
-    return $execution;
+    $executionok = $requete->execute();
+
+    return $executionok;
 }
+
 
 
 function getArmesV1() {
     $pdo = PDO2::getInstance();
-    $sql = "SELECT * FROM JeuArcade";
+    $sql = "SELECT * FROM arme";
     $result = $pdo->query($sql);
     
     $armes = array();
@@ -51,13 +52,13 @@ function getArmesV1() {
         $armes[] = $row;
     }
     
-    return $arme;
+    return $armes;
 }
 
 
 function getArmesV2() {
     $pdo = PDO2::getInstance();
-    $sql = "SELECT * FROM JeuArcade";
+    $sql = "SELECT * FROM arme";
     $result = $pdo->query($sql);
     
     $armes = new ArrayObject();
@@ -72,7 +73,7 @@ function getArmesV2() {
 
 function getArmeByIdV1($id) {
     $pdo = PDO2::getInstance();
-    $sql = "SELECT * FROM JeuArcade WHERE id = :id";
+    $sql = "SELECT * FROM arme WHERE id = :id";
     $requete = $pdo->prepare($sql);
     $requete->bindValue(':id', $id);
     $executionok = $requete->execute();
@@ -88,7 +89,7 @@ function getArmeByIdV1($id) {
 
 function getArmeByIdV2($id) {
     $pdo = PDO2::getInstance();
-    $sql = "SELECT * FROM JeuArcade WHERE id = :id"; 
+    $sql = "SELECT * FROM arme WHERE id = :id"; 
     $requete = $pdo->prepare($sql);
     $requete->bindValue(':id', $id);
     $executionok = $requete->execute();
