@@ -26,8 +26,8 @@ $id=50;
 
 // 7.2
 echo "7.2";
-
-$arme = new Arme("24","Fléau", "../img/fleau/fleau2.png", " Un Fléau");
+// changer id à la main
+$arme = new Arme("29","Fléau", "../img/fleau/fleau2.png", " Un Fléau");
 
 $resultat = ajouteArme($arme);
 
