@@ -1,5 +1,5 @@
 <?php
-include '../global/config.php' :
+include '../global/config.php';
 /**
  * Classe implémentant le singleton pour PDO
  * @author Savageman
